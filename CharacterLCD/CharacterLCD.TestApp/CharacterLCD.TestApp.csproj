@@ -131,6 +131,12 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CharacterLCD\CharacterLCD.csproj">
+      <Project>{3f5c7c49-3681-4855-bdc6-ab9948eb5470}</Project>
+      <Name>CharacterLCD</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

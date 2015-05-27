@@ -12,7 +12,6 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace CharacterLCD.TestApp
@@ -22,9 +21,23 @@ namespace CharacterLCD.TestApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        Callant.CharacterLCD lcd = null;
         public MainPage()
         {
             this.InitializeComponent();
+            Unloaded += MainPage_Unloaded;
+
+            lcd = new Callant.CharacterLCD();
+        }
+
+        private void MainPage_Unloaded(object sender, RoutedEventArgs e)
+        {
+            lcd.Dispose();
+        }
+
+        private void WriteLCD_Click(object sender, RoutedEventArgs e)
+        {
+            lcd.WriteLCD(txtWriteLCD.Text);
         }
     }
 }

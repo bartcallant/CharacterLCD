@@ -28,6 +28,7 @@ namespace CharacterLCD.TestApp
             Unloaded += MainPage_Unloaded;
 
             lcd = new Callant.CharacterLCD();
+            lcd.WriteLCD("Hello world!");
         }
 
         private void MainPage_Unloaded(object sender, RoutedEventArgs e)

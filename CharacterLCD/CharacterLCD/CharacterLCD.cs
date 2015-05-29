@@ -26,7 +26,6 @@ namespace Callant
         private GpioPin[] gpData = null;
         private int[] DATA = new int[8] { 27, 22, 5, 6, 13, 26, 18, 16 };
 
-
         public CharacterLCD(int rs = 25, int e = 24, int data0 = DATA0, int data1 = DATA1, int data2 = DATA2, int data3 = DATA3, int data4 = DATA4, int data5 = DATA5, int data6 = DATA6, int data7 = DATA7)
         {
             this.InitGPIO();
@@ -51,13 +50,13 @@ namespace Callant
             this.gpio = GpioController.GetDefault();
 
             if (gpio == null)
-                throw new NullReferenceException();
+                throw new NullReferenceException("No GPIO controller found!");
         }
         private void InitPin(ref GpioPin pin, int pinNr)
         {
             pin = this.gpio.OpenPin(pinNr);
             if (pin == null)
-                throw new ArgumentNullException();
+                throw new ArgumentNullException("Cannot open pin!");
 
             pin.SetDriveMode(GpioPinDriveMode.Output);
             //pin.Write(GpioPinValue.Low);
@@ -67,7 +66,7 @@ namespace Callant
             this.InitPin(ref gpRS, RS);
             this.InitPin(ref gpE, E);
 
-            gpData = new GpioPin[8];
+            this.gpData = new GpioPin[8];
             for (int i = 0; i < 8; i++)
             {
                 this.InitPin(ref this.gpData[i], this.DATA[i]);
@@ -80,21 +79,19 @@ namespace Callant
 
         public void InitLCD()
         {
-            // FunctionSet
-            this.SendInstruction(56);
-
-            this.Wait();
+            // FunctionSet 00111100
+            this.SendInstruction(60);
 
             // DisplayOn
             this.SendInstruction(15);
-
-            //this.ClearLCD();
         }
         public void ClearLCD()
         {
-            this.Wait();
             this.SendInstruction(1);
-            this.Wait();
+        }
+        public void CursorHome()
+        {
+            this.SendInstruction(2);
         }
 
         //EHoogInstructie(E = I, RS = 0, RW = 0) 
@@ -148,10 +145,6 @@ namespace Callant
                 }
             }
         }
-        private void Wait()
-        {
-            Task.Delay(TimeSpan.FromMilliseconds(1));
-        }
         public void Dispose()
         {
             this.gpRS.Dispose();
@@ -164,9 +157,7 @@ namespace Callant
         private void SendInstruction(short bit)
         {
             this.EHighInstruction();
-            this.Wait();
             this.WriteData(bit);
-            this.Wait();
             this.ELowInstruction();
         }
         public void WriteLCD(string message)
@@ -174,22 +165,38 @@ namespace Callant
             this.ClearLCD();
 
             int i = 0;
+            bool nLine = message.Contains("\n");
+
             foreach (char c in message)
             {
                 i++;
 
-                //if (i == 17)
-                //NewLine();
+                if (!nLine && i == 17)
+                    this.NewLine();
+
+                if (c == '\n')
+                {
+                    this.NewLine();
+                    continue;
+                }
+                    
 
                 this.EHighData();
-                this.Wait();
                 this.WriteData((short)c);
-                this.Wait();
                 this.ELowData();
-                this.Wait();
             }
-
-            //SendInstruction(31);
+        }
+        public void NewLine()
+        {
+            this.SendInstruction(192);
+        }
+        public void ShiftDisplayLeft()
+        {
+            this.SendInstruction(24);
+        }
+        public void ShiftDisplayRight()
+        {
+            this.SendInstruction(28);
         }
     }
 }

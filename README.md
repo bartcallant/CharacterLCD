@@ -1,12 +1,15 @@
 # CharacterLCD
-CharacterLCD is a .NET library to control a character LCD on the Raspberry Pi 2 running Windows 10 IoT Core.
+CharacterLCD is a .NET library to control a character LCD (16x2) on the Raspberry Pi 2 running Windows 10 IoT Core.
 
 # Methods
 - Initializer : initialize the LCD
 - ClearLCD : clear the text on the LCD
 - Dispose : close the pins
 - WriteLCD : dislay a string on the LCD
-
+- NewLine : change cursor to the start of the second line
+- ShiftDisplayLeft : shift the text on the display to the right
+- ShiftDisplayRight : shift the text on the display to the right
+ 
 # Usage
 ## Preparation
 In order to use this you need to have Windows 10 IoT Core set up on your Raspberry Pi 2.
@@ -25,6 +28,14 @@ This library is not yet finished. I will try to extend and improve the library.
 
 # Contribute
 If you find mistakes, things that could be done better, feel free to contribute!
+
+# Changelog
+## 1.1.0.0
+- Second line support. When a string is send to display, it will be automatically displayed on the second line when the sting is longer than 16 characters, or when '\n' is detected.
+- Shift display support (left/right)
+
+## 1.0.0.0
+- Initial release
 
 # Copyright
 Copyright (&copy;) 2015 Bart Callant.

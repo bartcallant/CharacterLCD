@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterLCD", "CharacterLC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterLCD.TestApp", "CharacterLCD.TestApp\CharacterLCD.TestApp.csproj", "{0FAF3BF1-672F-4B49-BC8D-4B0E555601DB}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CharacterLCD.AllJoyn", "CharacterLCD.AllJoyn\CharacterLCD.AllJoyn.vcxproj", "{E45DB6F3-45C0-4D5A-BC6E-132BBB1BD20B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,20 @@ Global
 		{0FAF3BF1-672F-4B49-BC8D-4B0E555601DB}.Release|x86.ActiveCfg = Release|x86
 		{0FAF3BF1-672F-4B49-BC8D-4B0E555601DB}.Release|x86.Build.0 = Release|x86
 		{0FAF3BF1-672F-4B49-BC8D-4B0E555601DB}.Release|x86.Deploy.0 = Release|x86
+		{E45DB6F3-45C0-4D5A-BC6E-132BBB1BD20B}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{E45DB6F3-45C0-4D5A-BC6E-132BBB1BD20B}.Debug|ARM.ActiveCfg = Debug|ARM
+		{E45DB6F3-45C0-4D5A-BC6E-132BBB1BD20B}.Debug|ARM.Build.0 = Debug|ARM
+		{E45DB6F3-45C0-4D5A-BC6E-132BBB1BD20B}.Debug|x64.ActiveCfg = Debug|x64
+		{E45DB6F3-45C0-4D5A-BC6E-132BBB1BD20B}.Debug|x64.Build.0 = Debug|x64
+		{E45DB6F3-45C0-4D5A-BC6E-132BBB1BD20B}.Debug|x86.ActiveCfg = Debug|Win32
+		{E45DB6F3-45C0-4D5A-BC6E-132BBB1BD20B}.Debug|x86.Build.0 = Debug|Win32
+		{E45DB6F3-45C0-4D5A-BC6E-132BBB1BD20B}.Release|Any CPU.ActiveCfg = Release|Win32
+		{E45DB6F3-45C0-4D5A-BC6E-132BBB1BD20B}.Release|ARM.ActiveCfg = Release|ARM
+		{E45DB6F3-45C0-4D5A-BC6E-132BBB1BD20B}.Release|ARM.Build.0 = Release|ARM
+		{E45DB6F3-45C0-4D5A-BC6E-132BBB1BD20B}.Release|x64.ActiveCfg = Release|x64
+		{E45DB6F3-45C0-4D5A-BC6E-132BBB1BD20B}.Release|x64.Build.0 = Release|x64
+		{E45DB6F3-45C0-4D5A-BC6E-132BBB1BD20B}.Release|x86.ActiveCfg = Release|Win32
+		{E45DB6F3-45C0-4D5A-BC6E-132BBB1BD20B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

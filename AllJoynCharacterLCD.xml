@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://standards.freedesktop.org/dbus/introspect-1.0.dtd">
+<node>
+<interface name="Callant.CharacterLCD">
+        <method name="Send">
+            <arg name="Message" type="s" direction="in"/>
+        </method>
+</interface>
+</node>

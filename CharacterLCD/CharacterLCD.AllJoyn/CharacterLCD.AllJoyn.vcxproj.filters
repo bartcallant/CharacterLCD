@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resources">
+      <UniqueIdentifier>8f230060-d1d7-48a3-a126-136eee5b38f5</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tga;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="AllJoynHelpers.cpp" />
+    <ClCompile Include="CharacterLCDConsumer.cpp" />
+    <ClCompile Include="CharacterLCDProducer.cpp" />
+    <ClCompile Include="CharacterLCDServiceEventAdapter.cpp" />
+    <ClCompile Include="CharacterLCDServiceEventArgs.cpp" />
+    <ClCompile Include="CharacterLCDSignals.cpp" />
+    <ClCompile Include="CharacterLCDWatcher.cpp" />
+    <ClCompile Include="TypeConversionHelpers.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="AllJoynHelpers.h" />
+    <ClInclude Include="CharacterLCDConsumer.h" />
+    <ClInclude Include="CharacterLCDEventArgs.h" />
+    <ClInclude Include="CharacterLCDMethodResults.h" />
+    <ClInclude Include="CharacterLCDProducer.h" />
+    <ClInclude Include="CharacterLCDServiceEventAdapter.h" />
+    <ClInclude Include="CharacterLCDServiceEventArgs.h" />
+    <ClInclude Include="CharacterLCDSignals.h" />
+    <ClInclude Include="CharacterLCDStructures.h" />
+    <ClInclude Include="CharacterLCDWatcher.h" />
+    <ClInclude Include="ICharacterLCDService.h" />
+    <ClInclude Include="TypeConversionHelpers.h" />
+  </ItemGroup>
+</Project>

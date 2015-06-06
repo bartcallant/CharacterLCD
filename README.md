@@ -30,6 +30,9 @@ This library is not yet finished. I will try to extend and improve the library.
 If you find mistakes, things that could be done better, feel free to contribute!
 
 # Changelog
+## 1.1.1.0
+- Bugfixes
+
 ## 1.1.0.0
 - Second line support. When a string is send to display, it will be automatically displayed on the second line when the sting is longer than 16 characters, or when '\n' is detected.
 - Shift display support (left/right)

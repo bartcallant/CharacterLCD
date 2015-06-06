@@ -75,9 +75,36 @@ namespace CharacterLCD.AllJoynClient.ViewModel
                 await dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                 {
                     Consumer = joinSessionResult.Consumer;
+                    Consumer.SessionLost += Consumer_SessionLost;
+                    Consumer.SessionMemberAdded += Consumer_SessionMemberAdded;
+                    Consumer.SessionMemberRemoved += Consumer_SessionMemberRemoved;
                     Status = "Connected";
                 });
             }
+        }
+
+        private async void Consumer_SessionMemberRemoved(CharacterLCDConsumer sender, AllJoynSessionMemberRemovedEventArgs args)
+        {
+            await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                Status = "Session member removed!";
+            });
+        }
+
+        private async void Consumer_SessionMemberAdded(CharacterLCDConsumer sender, AllJoynSessionMemberAddedEventArgs args)
+        {
+            await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                Status = "Session member added!";
+            });
+        }
+
+        private async void Consumer_SessionLost(CharacterLCDConsumer sender, AllJoynSessionLostEventArgs args)
+        {
+            await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                Status = "Session lost!";
+            });
         }
 
         public ICommand GetResult { get { return new RelayCommand(GetServerResult); } }

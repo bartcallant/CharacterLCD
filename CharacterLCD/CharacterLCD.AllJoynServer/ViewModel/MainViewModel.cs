@@ -3,6 +3,8 @@ using GalaSoft.MvvmLight.Command;
 using System.Windows.Input;
 using Windows.Devices.AllJoyn;
 using Callant;
+using Windows.ApplicationModel.Core;
+using System;
 
 namespace CharacterLCD.AllJoynServer.ViewModel
 {
@@ -33,6 +35,7 @@ namespace CharacterLCD.AllJoynServer.ViewModel
             ////{
             ////    // Code runs "for real"
             ////}
+
         }
         private string _status = "Not running";
         public string Status
@@ -57,12 +60,48 @@ namespace CharacterLCD.AllJoynServer.ViewModel
             p.Service = new CharacterLCDService();
             Producer = p;
             Producer.Start();
+            Producer.SessionLost += Producer_SessionLost;
+            Producer.SessionMemberAdded += Producer_SessionMemberAdded;
+            Producer.SessionMemberRemoved += Producer_SessionMemberRemoved;
+            Producer.Stopped += Producer_Stopped;
             Status = "Running";
         }
         public void Stop()
         {
             Producer.Stop();
             Status = "Not running";
+        }
+
+        private async void Producer_Stopped(CharacterLCDProducer sender, AllJoynProducerStoppedEventArgs args)
+        {
+            await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                Status = "Stoped!";
+            });
+        }
+
+        private async void Producer_SessionMemberRemoved(CharacterLCDProducer sender, AllJoynSessionMemberRemovedEventArgs args)
+        {
+            await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                Status = "Session member removed!";
+            });
+        }
+
+        private async void Producer_SessionMemberAdded(CharacterLCDProducer sender, AllJoynSessionMemberAddedEventArgs args)
+        {
+            await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                Status = "Session member added!";
+            });
+        }
+
+        private async void Producer_SessionLost(CharacterLCDProducer sender, AllJoynSessionLostEventArgs args)
+        {
+            await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                Status = "Session lost!";
+            });
         }
     }
 }

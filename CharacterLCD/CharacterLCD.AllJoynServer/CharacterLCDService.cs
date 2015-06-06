@@ -12,11 +12,15 @@ namespace CharacterLCD.AllJoynServer
 {
     public sealed class CharacterLCDService : ICharacterLCDService
     {
+        Callant.CharacterLCD lcd = null;
+        public CharacterLCDService()
+        {
+            lcd = new Callant.CharacterLCD();
+        }
         public IAsyncOperation<CharacterLCDSendResult> SendAsync(AllJoynMessageInfo info, string interface_message)
         {
             Task<CharacterLCDSendResult> task = new Task<CharacterLCDSendResult>(() =>
             {
-                Callant.CharacterLCD lcd = new Callant.CharacterLCD();
                 lcd.WriteLCD(interface_message);
                 return CharacterLCDSendResult.CreateSuccessResult();
             });

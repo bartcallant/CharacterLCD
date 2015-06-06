@@ -13,7 +13,7 @@
             <TextBlock Text="{Binding Status}" Margin="0,0,0,20" />
             <Button Content="Connect" Command="{Binding ConnectServer}" Width="150" Margin="0,0,0,20" />
             <TextBox PlaceholderText="Message" Text="{Binding Message, Mode=TwoWay}" Width="150" Margin="0,0,0,20" />
-            <Button Content="Send Message" Command="{Binding SendMessage}" Width="150" Margin="0,0,0,20" />
+            <Button Content="Send Message" Command="{Binding GetResult}" Width="150" Margin="0,0,0,20" />
         </StackPanel>
     </Grid>
 </Page>

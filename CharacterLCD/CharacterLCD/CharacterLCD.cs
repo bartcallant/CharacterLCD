@@ -43,7 +43,7 @@ namespace Callant
 
             this.InitAllPins();
 
-            InitLCD();
+            this.InitLCD();
         }
         private void InitGPIO()
         {
@@ -81,17 +81,21 @@ namespace Callant
         {
             // FunctionSet 00111100
             this.SendInstruction(60);
+            this.Wait(TimeSpan.FromMilliseconds(0.04));
 
             // DisplayOn
             this.SendInstruction(15);
+            this.Wait(TimeSpan.FromMilliseconds(0.04));
         }
         public void ClearLCD()
         {
             this.SendInstruction(1);
+            this.Wait(TimeSpan.FromMilliseconds(1.64));
         }
         public void CursorHome()
         {
             this.SendInstruction(2);
+            this.Wait(TimeSpan.FromMilliseconds(1.64));
         }
 
         //EHoogInstructie(E = I, RS = 0, RW = 0) 
@@ -183,20 +187,28 @@ namespace Callant
 
                 this.EHighData();
                 this.WriteData((short)c);
+                this.Wait(TimeSpan.FromMilliseconds(0.04));
                 this.ELowData();
             }
         }
         public void NewLine()
         {
             this.SendInstruction(192);
+            this.Wait(TimeSpan.FromMilliseconds(0.04));
         }
         public void ShiftDisplayLeft()
         {
             this.SendInstruction(24);
+            this.Wait(TimeSpan.FromMilliseconds(0.04));
         }
         public void ShiftDisplayRight()
         {
             this.SendInstruction(28);
+            this.Wait(TimeSpan.FromMilliseconds(0.04));
+        }
+        private void Wait(TimeSpan duration)
+        {		
+            Task.Delay(duration);		
         }
     }
 }

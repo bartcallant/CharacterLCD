@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Windows.Devices.AllJoyn;
 using Callant;
 using Windows.Foundation;
+using System.Diagnostics;
 
 namespace CharacterLCD.AllJoynServer
 {

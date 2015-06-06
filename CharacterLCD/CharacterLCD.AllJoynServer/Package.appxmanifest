@@ -1,22 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 
 <Package
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
-  xmlns:iot="http://schemas.microsoft.com/appx/manifest/iot/windows10"
-  IgnorableNamespaces="uap mp iot">
+  IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="CharacterLCD.AllJoynServer"
-    Publisher="CN=Bart"
+    Name="73ffc142-e253-40bd-a686-515e4a7b051d"
+    Publisher="CN=Bart Callant"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="a3e4b3d1-9fff-43d6-ba1b-70bcb1ba337d" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="73ffc142-e253-40bd-a686-515e4a7b051d" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>CharacterLCD.AllJoynServer</DisplayName>
-    <PublisherDisplayName>Bart</PublisherDisplayName>
+    <PublisherDisplayName>Bart Callant</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -29,23 +28,17 @@
   </Resources>
 
   <Applications>
-    <Application Id="App">
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="CharacterLCD.AllJoynServer.App">
       <uap:VisualElements
         DisplayName="CharacterLCD.AllJoynServer"
         Square150x150Logo="Assets\Logo.png"
         Square44x44Logo="Assets\SmallLogo.png"
         Description="CharacterLCD.AllJoynServer"
-        BackgroundColor="#464646"
-        AppListEntry="none">
+        BackgroundColor="#464646">
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
-      <Extensions>
-        <Extension Category="windows.backgroundTasks" EntryPoint="CharacterLCD.AllJoynServer.StartupTask">
-          <BackgroundTasks>
-            <iot:Task Type="startup" />
-          </BackgroundTasks>
-        </Extension>
-      </Extensions>
     </Application>
   </Applications>
 

@@ -1,8 +1,5 @@
-﻿<Application
-    x:Class="CharacterLCD.AllJoynClient.App"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:CharacterLCD.AllJoynClient"
-    RequestedTheme="Dark">
-
+<Application x:Class="CharacterLCD.AllJoynClient.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="using:CharacterLCD.AllJoynClient" RequestedTheme="Light">
+  <Application.Resources>
+    <vm:ViewModelLocator x:Key="Locator" xmlns:vm="using:CharacterLCD.AllJoynClient.ViewModel" />
+  </Application.Resources>
 </Application>

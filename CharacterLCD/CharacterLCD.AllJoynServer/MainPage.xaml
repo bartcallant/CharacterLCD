@@ -1,8 +1,8 @@
 ﻿<Page
-    x:Class="CharacterLCD.AllJoynClient.MainPage"
+    x:Class="CharacterLCD.AllJoynServer.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:CharacterLCD.AllJoynClient"
+    xmlns:local="using:CharacterLCD.AllJoynServer"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -11,9 +11,8 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel Margin="40" HorizontalAlignment="Left">
             <TextBlock Text="{Binding Status}" Margin="0,0,0,20" />
-            <Button Content="Connect" Command="{Binding ConnectServer}" Width="150" Margin="0,0,0,20" />
-            <TextBox PlaceholderText="Message" Text="{Binding Message, Mode=TwoWay}" Width="150" Margin="0,0,0,20" />
-            <Button Content="Send Message" Command="{Binding SendMessage}" Width="150" Margin="0,0,0,20" />
+            <Button Content="Start" Command="{Binding StartServer}" Margin="0,0,0,20" Width="150" />
+            <Button Content="Stop" Command="{Binding StopServer}" Margin="0,0,0,20" Width="150" />
         </StackPanel>
     </Grid>
 </Page>

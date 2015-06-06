@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="b35b47aa-56e7-4fd9-99e8-cecd33e1ca6c"
-    Publisher="CN=Bart"
+    Name="75c38ea8-e167-4e4e-a12d-4b34ca926634"
+    Publisher="CN=Bart Callant"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="b35b47aa-56e7-4fd9-99e8-cecd33e1ca6c" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="75c38ea8-e167-4e4e-a12d-4b34ca926634" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>CharacterLCD.AllJoynClient</DisplayName>
-    <PublisherDisplayName>Bart</PublisherDisplayName>
+    <PublisherDisplayName>Bart Callant</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
